@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title id="meta-title">CheckKit — International Hardware, Privacy & Anti-Scam </title>
+  <meta id="meta-desc" name="description" content="Professional browser-based hardware tester, speaker water eject, IP/WebRTC leak detector, EXIF stripper, temp mail & anti-scam URL scanner." />
+
+  <!-- Fonts: Plus Jakarta Sans (Global SaaS) + Hind Siliguri (Clean Bangla) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Hind Siliguri"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+  <!-- PWA Manifest & Mobile App Meta -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#050816" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="CheckKit" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <!-- Canonical & SEO Robots -->
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn Preview) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
+  <meta property="og:title" content="CheckKit — Free Hardware Tester, Privacy & Anti-Scam Toolkit" />
+  <meta property="og:description" content="Test phone & PC hardware, eject speaker water, detect IP/WebRTC leaks, strip photo GPS EXIF, generate temp mail & scan scam links — 100% free in your browser." />
+  <meta property="og:image" content="https://YOUR-DOMAIN.com/assets/logo.png" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CheckKit — Hardware, Privacy & Anti-Scam " />
+  <meta name="twitter:description" content="14+ free browser diagnostic & privacy tools with offline PWA support." />
+  <meta name="twitter:image" content="https://YOUR-DOMAIN.com/assets/logo.png" />
+
+  <!-- Structured Data (Google Rich Snippet Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CheckKit",
+    "url": "https://YOUR-DOMAIN.com/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "All-in-one browser toolkit for hardware testing (mic, webcam, speaker water eject, dead pixel, touchscreen, keyboard/mouse, gamepad), privacy checks (IP/WebRTC leak, browser fingerprint, EXIF stripper, ping/jitter), temp mail, and anti-scam link scanning."
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#050816] dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden pb-20 md:pb-0 transition-colors duration-300">
+
+  <!-- ==================== ANIMATED SAAS AURORA BACKGROUND ==================== -->
+  <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div class="bg-grid-pattern absolute inset-0 opacity-40 dark:opacity-25"></div>
+    <div class="aurora-orb orb-1"></div>
+    <div class="aurora-orb orb-2"></div>
+    <div class="aurora-orb orb-3"></div>
+  </div>
+
+  <!-- ==================== FLOATING GLASS NAVBAR ==================== -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/70 dark:border-white/10 bg-white/75 dark:bg-[#070b1e]/75 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+
+      <!-- Custom File Logo + Smart Fallback -->
+      <a href="#home" class="flex items-center gap-2.5 group shrink-0">
+        <div class="relative w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
+          <!-- তোমার লোগো ফাইল (config.js থেকে পাথ আসবে) -->
+          <img
+            id="brand-logo-img"
+            src="assets/logo.png"
+            alt="Brand Logo"
+            class="w-full h-full object-contain"
+            onerror="this.classList.add('hidden'); document.getElementById('brand-logo-fallback').classList.remove('hidden');"
+          />
+          <!-- লোগো ফাইল না পাওয়া পর্যন্ত অ্যানিমেটেড ব্যাকআপ লোগো -->
+          <div id="brand-logo-fallback" class="hidden w-full h-full bg-gradient-to-br from-emerald-400 via-cyan-500 to-indigo-600 flex items-center justify-center text-white">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+        </div>
+        <div class="leading-tight">
+          <span id="brand-name" class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-cyan-200 bg-clip-text text-transparent block">CheckKit</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block"></span>
+        </div>
+      </a>
+
+      <!-- Desktop Command Search Bar -->
+      <div class="hidden lg:flex flex-1 max-w-md relative group">
+        <i data-lucide="search" class="w-4 h-4 text-slate-400 group-focus-within:text-cyan-400 absolute left-3.5 top-1/2 -translate-y-1/2 transition"></i>
+        <input
+          id="global-search"
+          type="text"
+          placeholder="Search mic, water eject, IP leak, temp mail..."
+          class="w-full pl-10 pr-14 py-2 text-sm rounded-xl bg-slate-100/90 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 transition"
+        />
+        <kbd class="absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[10px] font-bold rounded bg-white dark:bg-white/10 text-slate-400 border border-slate-200 dark:border-white/10">⌘K</kbd>
+      </div>
+
+      <!-- Right Action Controls -->
+      <div class="flex items-center gap-2">
+        <!-- Scorecard Pill -->
+        <button id="open-scorecard-btn" class="btn-glass hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold">
+          <i data-lucide="clipboard-check" class="w-4 h-4 text-emerald-400"></i>
+          <span data-i18n="scorecardBtn">Scorecard</span>
+          <span id="scorecard-badge" class="px-1.5 py-0.5 text-[10px] rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-300">0/7</span>
+        </button>
+
+        <!-- EN / বাংলা Switcher -->
+        <button id="lang-toggle" class="btn-glass px-3 py-2 rounded-xl text-xs font-bold">
+          বাংলা
+        </button>
+
+        <!-- Theme Switcher -->
+        <button id="theme-toggle" aria-label="Toggle Theme" class="btn-glass p-2 rounded-xl">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-indigo-600"></i>
+        </button>
+
+        <!-- Auth Button (Login / User Profile) -->
+        <button id="open-auth-btn" class="btn-outline-glow hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold">
+          <i data-lucide="user-circle" class="w-4 h-4"></i>
+          <span id="nav-auth-label" data-i18n="signIn">Sign In</span>
+        </button>
+
+        <!-- Colorful Animated Pro CTA -->
+        <button id="open-pro-btn" class="btn-aurora btn-shimmer inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-extrabold text-white shadow-lg shadow-fuchsia-500/25">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span data-i18n="goPro">Go Pro</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Search Strip -->
+    <div class="lg:hidden px-4 pb-3">
+      <div class="relative">
+        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+        <input
+          id="mobile-search"
+          type="text"
+          placeholder="Search tools..."
+          class="w-full pl-10 pr-4 py-2 text-sm rounded-xl bg-slate-100/90 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+        />
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== TOP BANNER AD SLOT (CLS-SAFE) ==================== -->
+  <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-4">
+    <div id="ad-slot-top" class="ad-slot-box min-h-[84px] rounded-2xl border border-dashed border-slate-300/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.02] backdrop-blur-sm flex items-center justify-center text-xs text-slate-400">
+      <span>Ad Slot — Top Responsive Banner (Hidden automatically for Pro users)</span>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-7 sm:py-10">
+
+    <!-- ########## VIEW 1: HOME SAAS DIRECTORY ########## -->
+    <section id="home-view" class="fade-in-up">
+
+      <!-- International SaaS Hero -->
+      <div class="text-center max-w-4xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-emerald-500/15 via-cyan-500/15 to-violet-500/15 text-emerald-700 dark:text-cyan-300 border border-cyan-500/30 mb-5 shadow-sm">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span data-i18n="heroBadge">14+ Pro Tools • 100% Client-Side Safe • Global & BD Ready</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.12] mb-4">
+          <span class="animated-gradient-text" data-i18n="heroTitle">Test Your Hardware.</span>
+          <br />
+          <span class="text-slate-900 dark:text-white" data-i18n="heroTitleLine2">Lock Down Your Privacy.</span>
+        </h1>
+
+        <p class="text-sm sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-7 leading-relaxed" data-i18n="heroSubtitle">
+          An international-grade browser toolkit for instant phone & PC diagnostics, IP/WebRTC leak detection, disposable temp mail, and anti-scam URL verification.
+        </p>
+
+        <!-- Dual Animated Hero CTAs -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+          <a href="#speaker-water-eject" class="btn-gradient-emerald btn-shimmer inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-extrabold text-white shadow-xl shadow-emerald-500/25">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            <span data-i18n="heroCta1">Quick Hardware Check</span>
+          </a>
+          <a href="#ip-webrtc-leak" class="btn-gradient-cyber btn-shimmer inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-extrabold text-white shadow-xl shadow-indigo-500/25">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span data-i18n="heroCta2">Scan IP & Privacy Leak</span>
+          </a>
+        </div>
+
+        <!-- SaaS Live Trust Metrics -->
+        <div class="grid grid-cols-3 gap-3 max-w-xl mx-auto p-3.5 rounded-2xl glass-card">
+          <div>
+            <div class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">100%</div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium" data-i18n="stat1">Local Browser Safe</div>
+          </div>
+          <div class="border-x border-slate-200 dark:border-white/10">
+            <div class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">14+</div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium" data-i18n="stat2">Pro Diagnostic Tools</div>
+          </div>
+          <div>
+            <div class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-fuchsia-400 to-amber-400 bg-clip-text text-transparent">0 sec</div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium" data-i18n="stat3">No App Install</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colorful Animated Category Filter Pills -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-8" id="category-tabs">
+        <button data-cat="all" class="cat-tab active px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          <span data-i18n="catAll">All Tools</span>
+        </button>
+        <button data-cat="hardware" class="cat-tab px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2">
+          <i data-lucide="cpu" class="w-4 h-4"></i>
+          <span data-i18n="catHardware">Hardware & Device</span>
+        </button>
+        <button data-cat="privacy" class="cat-tab px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2">
+          <i data-lucide="globe-lock" class="w-4 h-4"></i>
+          <span data-i18n="catPrivacy">Privacy & IP</span>
+        </button>
+        <button data-cat="security" class="cat-tab px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2">
+          <i data-lucide="shield-alert" class="w-4 h-4"></i>
+          <span data-i18n="catSecurity">Temp Mail & Anti-Scam</span>
+        </button>
+      </div>
+
+      <!-- Tools Bento Grid -->
+      <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Empty Search State -->
+      <div id="empty-search" class="hidden text-center py-16 glass-card rounded-3xl">
+        <i data-lucide="search-x" class="w-12 h-12 text-cyan-400 mx-auto mb-3"></i>
+        <p class="text-slate-600 dark:text-slate-300 font-bold" data-i18n="noResults">No matching tool found. Try another keyword.</p>
+      </div>
+
+      <!-- Feature Highlights Strip -->
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="p-6 rounded-3xl glass-card hover:border-emerald-400/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 text-white flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/25">
+            <i data-lucide="lock" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-extrabold text-base mb-1.5" data-i18n="trust1Title">Zero-Upload Architecture</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="trust1Desc">Mic, camera, and photo EXIF tools process 100% locally in your browser—your files never touch a server.</p>
+        </div>
+        <div class="p-6 rounded-3xl glass-card hover:border-cyan-400/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 text-white flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/25">
+            <i data-lucide="smartphone-charging" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-extrabold text-base mb-1.5" data-i18n="trust2Title">Used Phone Inspection Report</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="trust2Desc">Verify screen, touch, speaker & mic before buying or selling a used phone and export a Health Scorecard.</p>
+        </div>
+        <div class="p-6 rounded-3xl glass-card hover:border-fuchsia-400/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-600 text-white flex items-center justify-center mb-4 shadow-lg shadow-fuchsia-500/25">
+            <i data-lucide="cloud" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-extrabold text-base mb-1.5" data-i18n="trust3Title">Cloud Sync & Pro Workspace</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="trust3Desc">Create a free account to sync your scorecards, unlock ad-free mode, and access Pro anti-scam features.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ########## VIEW 2: DEDICATED TOOL WORKSPACE ########## -->
+    <section id="tool-view" class="hidden fade-in-up">
+      <!-- Top Breadcrumb -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <div class="flex items-center gap-2 text-xs sm:text-sm">
+          <a href="#home" class="btn-glass inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span data-i18n="backToAll">All Tools</span>
+          </a>
+          <span class="text-slate-400">/</span>
+          <span id="ws-category-label" class="text-slate-500 dark:text-slate-400 font-medium">Category</span>
+          <span class="text-slate-400">/</span>
+          <span id="ws-breadcrumb-title" class="font-bold text-emerald-600 dark:text-cyan-400">Tool Name</span>
+        </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span>Client-Side Verified</span>
+        </div>
+      </div>
+
+      <!-- 2-Column SaaS Workspace -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-8 space-y-6">
+          <!-- Main Interactive Card -->
+          <div class="p-5 sm:p-7 rounded-3xl glass-card shadow-xl">
+            <div class="flex items-start gap-4 mb-6">
+              <div id="ws-icon-box" class="w-13 h-13 p-3.5 rounded-2xl bg-gradient-to-br from-emerald-400 to-cyan-600 text-white flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/25">
+                <i data-lucide="wrench" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h1 id="ws-title" class="text-xl sm:text-3xl font-extrabold tracking-tight">Tool Title</h1>
+                <p id="ws-desc" class="text-sm text-slate-600 dark:text-slate-400 mt-1">Tool description goes here.</p>
+              </div>
+            </div>
+
+            <!-- PLUG-IN MOUNT POINT -->
+            <div id="tool-mount" class="min-h-[320px] rounded-2xl bg-slate-100/80 dark:bg-[#060a1c]/90 border border-slate-200 dark:border-white/10 p-5 sm:p-7 flex flex-col justify-center"></div>
+
+            <!-- Hardware Scorecard Action Bar -->
+            <div id="ws-scorecard-bar" class="hidden mt-5 pt-5 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
+              <span class="text-xs font-bold text-slate-500 dark:text-slate-400" data-i18n="markTestResult">Save result to Device Health Scorecard:</span>
+              <div class="flex items-center gap-2.5">
+                <button id="mark-pass-btn" class="btn-gradient-emerald btn-shimmer px-4 py-2 rounded-xl text-xs font-extrabold text-white">✓ Mark Passed</button>
+                <button id="mark-fail-btn" class="btn-gradient-rose btn-shimmer px-4 py-2 rounded-xl text-xs font-extrabold text-white">✕ Issue Found</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Below-Tool Ad Slot -->
+          <div id="ad-slot-below" class="ad-slot-box min-h-[100px] rounded-2xl border border-dashed border-slate-300/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.02] flex items-center justify-center text-xs text-slate-400">
+            <span>Ad Slot — Below Tool High-Viewability Banner</span>
+          </div>
+
+          <!-- SEO Guide & FAQ -->
+          <div class="p-6 rounded-3xl glass-card">
+            <h2 class="text-lg font-extrabold mb-3 flex items-center gap-2">
+              <i data-lucide="book-open-check" class="w-5 h-5 text-cyan-400"></i>
+              <span data-i18n="howToUseTitle">How to Use & Frequently Asked Questions</span>
+            </h2>
+            <p id="ws-seo-guide" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5"></p>
+            <div id="ws-faq-list" class="space-y-3"></div>
+          </div>
+        </div>
+
+        <!-- Sticky Right Sidebar -->
+        <aside class="lg:col-span-4 space-y-5 lg:sticky lg:top-20">
+          <!-- Context-Aware Smart Affiliate Card -->
+          <div id="smart-affiliate-card" class="p-6 rounded-3xl bg-gradient-to-br from-indigo-950 via-slate-900 to-emerald-950 text-white border border-cyan-400/30 shadow-2xl shadow-cyan-500/10 relative overflow-hidden"></div>
+
+          <!-- Sidebar Ad Slot -->
+          <div id="ad-slot-sidebar" class="ad-slot-box min-h-[250px] rounded-3xl border border-dashed border-slate-300/80 dark:border-white/10 bg-white/50 dark:bg-white/[0.02] flex items-center justify-center text-xs text-slate-400">
+            <span>Ad Slot — Sidebar (300×250)</span>
+          </div>
+
+          <!-- Related Tools -->
+          <div class="p-5 rounded-3xl glass-card">
+            <h3 class="text-sm font-extrabold mb-3 flex items-center gap-2">
+              <i data-lucide="compass" class="w-4 h-4 text-fuchsia-400"></i>
+              <span data-i18n="relatedTools">More Popular Tools</span>
+            </h3>
+            <div id="ws-related-tools" class="space-y-2"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-[#050816]/80 backdrop-blur-md mt-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="font-extrabold text-slate-900 dark:text-white" id="footer-brand">CheckKit</span>
+        <span>•</span>
+        <span data-i18n="footerTagline">International Hardware & Privacy SaaS Platform</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-5 font-semibold">
+        <a href="#home" class="hover:text-cyan-400 transition">Privacy</a>
+        <a href="#home" class="hover:text-cyan-400 transition">Terms</a>
+        <a href="#home" class="hover:text-cyan-400 transition">Security</a>
+        <a href="#home" class="hover:text-cyan-400 transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MOBILE APP-LIKE BOTTOM NAV ==================== -->
+  <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/90 dark:bg-[#070b1e]/95 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 px-2 py-2 flex items-center justify-around">
+    <button data-mobile-nav="all" class="mobile-nav-btn active flex flex-col items-center gap-0.5 text-[10px] font-bold px-3 py-1 rounded-xl">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span>Home</span>
+    </button>
+    <button data-mobile-nav="hardware" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-[10px] font-bold px-3 py-1 rounded-xl">
+      <i data-lucide="cpu" class="w-5 h-5"></i>
+      <span>Hardware</span>
+    </button>
+    <button data-mobile-nav="privacy" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-[10px] font-bold px-3 py-1 rounded-xl">
+      <i data-lucide="globe-lock" class="w-5 h-5"></i>
+      <span>Privacy</span>
+    </button>
+    <button id="mobile-scorecard-btn" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-[10px] font-bold px-3 py-1 rounded-xl">
+      <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+      <span>Report</span>
+    </button>
+    <button id="mobile-auth-btn" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-[10px] font-bold px-3 py-1 rounded-xl">
+      <i data-lucide="user-circle" class="w-5 h-5"></i>
+      <span id="mobile-auth-label">Account</span>
+    </button>
+  </nav>
+
+  <!-- ==================== LOGIN / REGISTER / ACCOUNT MODAL ==================== -->
+  <div id="auth-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-md p-4">
+    <div class="glass-modal rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-5">
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-indigo-600 flex items-center justify-center text-white">
+            <i data-lucide="user-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="auth-modal-heading" class="font-extrabold text-lg leading-tight">Welcome Back</h3>
+            <p class="text-[11px] text-slate-400">Free Cloud Account (Google Sheets Sync)</p>
+          </div>
+        </div>
+        <button class="close-modal p-1.5 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <!-- Logged-out View: Login & Register Tabs -->
+      <div id="auth-forms-wrap">
+        <div class="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-slate-100 dark:bg-white/5 mb-5">
+          <button id="tab-login-btn" class="auth-tab active py-2 rounded-xl text-xs font-extrabold transition">Sign In</button>
+          <button id="tab-register-btn" class="auth-tab py-2 rounded-xl text-xs font-extrabold transition">Create Account</button>
+        </div>
+
+        <form id="auth-form" class="space-y-3.5">
+          <div id="auth-name-field" class="hidden">
+            <label class="block text-xs font-bold mb-1 text-slate-500 dark:text-slate-300">Full Name</label>
+            <input id="auth-name" type="text" placeholder="e.g. Alex Carter" class="w-full px-3.5 py-2.5 rounded-xl text-sm bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold mb-1 text-slate-500 dark:text-slate-300">Email Address</label>
+            <input id="auth-email" type="email" required placeholder="you@example.com" class="w-full px-3.5 py-2.5 rounded-xl text-sm bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold mb-1 text-slate-500 dark:text-slate-300">Password</label>
+            <input id="auth-password" type="password" required minlength="6" placeholder="••••••••" class="w-full px-3.5 py-2.5 rounded-xl text-sm bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          </div>
+
+          <div id="auth-feedback" class="hidden text-xs font-semibold px-3.5 py-2.5 rounded-xl"></div>
+
+          <button id="auth-submit-btn" type="submit" class="btn-gradient-cyber btn-shimmer w-full py-3 rounded-xl text-sm font-extrabold text-white shadow-lg shadow-indigo-500/25">
+            Sign In to CheckKit
+          </button>
+        </form>
+      </div>
+
+      <!-- Logged-in Account Dashboard View -->
+      <div id="auth-profile-wrap" class="hidden space-y-4">
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-indigo-500/15 to-cyan-500/15 border border-cyan-500/30 flex items-center justify-between gap-3">
+          <div>
+            <p id="profile-name" class="font-extrabold text-base">User Name</p>
+            <p id="profile-email" class="text-xs text-slate-400">user@email.com</p>
+          </div>
+          <span id="profile-plan-badge" class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-400/30">FREE PLAN</span>
+        </div>
+
+        <button id="profile-upgrade-btn" class="btn-aurora btn-shimmer w-full py-2.5 rounded-xl text-xs font-extrabold text-white">
+          Upgrade to Pro (Ad-Free + PDF Reports)
+        </button>
+
+        <button id="logout-btn" class="btn-glass w-full py-2.5 rounded-xl text-xs font-bold text-rose-500 hover:bg-rose-500/10">
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GO PRO / PREMIUM MODAL (GLOBAL + BD) ==================== -->
+  <div id="pro-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-md p-4">
+    <div class="glass-modal rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border-fuchsia-500/40 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-4">
+        <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-gradient-to-r from-fuchsia-500 to-amber-500 text-white shadow">PRO ACCESS</span>
+        <button class="close-modal p-1.5 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <h3 class="font-extrabold text-2xl mb-1 animated-gradient-text" data-i18n="proTitle">Upgrade to CheckKit Pro</h3>
+      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-5" data-i18n="proDesc">Zero ads, custom domain temp mail, bulk scam link scanning & watermark-free PDF device reports.</p>
+
+      <ul class="space-y-2.5 text-xs sm:text-sm mb-6">
+        <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i> 100% Ad-Free Lightning Fast Experience</li>
+        <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0"></i> Verified PDF Device Health Reports (No Watermark)</li>
+        <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fuchsia-400 shrink-0"></i> Priority Scam URL Scanner & Extended Temp Mail Inbox</li>
+      </ul>
+
+      <!-- Payment Region Selector -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+          <div class="text-[11px] font-bold text-cyan-500 uppercase">Global (US / EU)</div>
+          <div class="text-2xl font-extrabold my-1">$4.99 <span class="text-xs font-medium text-slate-400">/mo</span></div>
+          <a id="pro-global-pay-link" href="#" target="_blank" class="btn-gradient-cyber btn-shimmer mt-2 block text-center py-2.5 rounded-xl text-xs font-extrabold text-white">Pay with Card / PayPal</a>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-white/5 border border-pink-500/30">
+          <div class="text-[11px] font-bold text-pink-500 uppercase">Bangladesh (BD)</div>
+          <div class="text-2xl font-extrabold my-1">৳199 <span class="text-xs font-medium text-slate-400">/মাস</span></div>
+          <button id="toggle-bkash-form" class="btn-gradient-pink btn-shimmer mt-2 w-full py-2.5 rounded-xl text-xs font-extrabold text-white">Pay via bKash / Nagad</button>
+        </div>
+      </div>
+
+      <!-- Free Google-Sheets Manual bKash Verification Drawer -->
+      <form id="bkash-verify-form" class="hidden space-y-3 p-4 rounded-2xl bg-pink-500/10 border border-pink-500/30">
+        <p class="text-xs font-semibold text-pink-400">bKash/Nagad Send Money: <strong id="bkash-number-display">01XXXXXXXXX</strong> — টাকা পাঠিয়ে নিচে TrxID দিন:</p>
+        <input id="bkash-trxid" type="text" required placeholder="Enter bKash/Nagad TrxID (e.g. BGH78K29)" class="w-full px-3 py-2 rounded-xl text-xs bg-white dark:bg-slate-950 border border-pink-500/30 focus:outline-none" />
+        <button type="submit" class="btn-gradient-pink btn-shimmer w-full py-2.5 rounded-xl text-xs font-extrabold text-white">Submit for Instant Activation</button>
+        <div id="bkash-feedback" class="hidden text-xs font-bold text-emerald-400"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== SCORECARD MODAL ==================== -->
+  <div id="scorecard-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-md p-4">
+    <div class="glass-modal rounded-3xl max-w-md w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-extrabold text-lg flex items-center gap-2">
+          <i data-lucide="clipboard-check" class="w-5 h-5 text-emerald-400"></i>
+          <span data-i18n="scorecardTitle">Device Health Scorecard</span>
+        </h3>
+        <button class="close-modal p-1.5 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div id="scorecard-list" class="space-y-2 mb-5 max-h-72 overflow-y-auto"></div>
+      <div class="flex items-center justify-between gap-2.5">
+        <button id="reset-scorecard-btn" class="btn-glass px-4 py-2.5 rounded-xl text-xs font-bold">Reset</button>
+        <button id="export-scorecard-btn" class="btn-gradient-emerald btn-shimmer flex-1 px-4 py-2.5 rounded-xl text-xs font-extrabold text-white">Export Report Card</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+
+  <!-- 1. Hardware Tools (7) -->
+  <script src="tools/speaker-water-eject.js"></script>
+  <script src="tools/mic-test.js"></script>
+  <script src="tools/webcam-test.js"></script>
+  <script src="tools/dead-pixel-hz.js"></script>
+  <script src="tools/touchscreen-test.js"></script>
+  <script src="tools/keyboard-mouse-test.js"></script>
+  <script src="tools/gamepad-test.js"></script>
+
+  <!-- 2. Privacy & Network Tools (4) -->
+  <script src="tools/ip-webrtc-leak.js"></script>
+  <script src="tools/browser-fingerprint.js"></script>
+  <script src="tools/exif-remover.js"></script>
+  <script src="tools/ping-jitter-test.js"></script>
+
+  <!-- 3. Security & Temp Mail Tools (3) -->
+  <script src="tools/temp-mail.js"></script>
+  <script src="tools/scam-link-checker.js"></script>
+  <script src="tools/password-gmail-alias.js"></script>
+
+  <!-- Device Health Scorecard PNG Exporter -->
+  <script src="tools/scorecard-export.js"></script>
+
+  <!-- Core App Engine -->
+  <script src="app.js"></script>
+  <!-- Free = Online Only (Ads Safe) | Pro = Offline Unlocked -->
+  <script src="tools/online-gate.js"></script>
+  <script src="tools/ad-manager.js"></script>
+  <!-- Register PWA Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+      });
+    }
+  </script>
+
+</body>
+</html>
