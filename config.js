@@ -16,29 +16,56 @@ window.APP_CONFIG = {
     globalCheckoutUrl: "https://your-lemonsqueezy-or-gumroad-link.com",
     bkashNumber: "017XXXXXXXX",
   },
-  // Adsterra & Monetag Config (Pro ইউজারদের জন্য অটোমেটিক বন্ধ থাকবে)
+// Adsterra Live Ads Config (Pro ইউজারদের জন্য অটোমেটিক বন্ধ থাকবে)
   ads: {
     enabled: true,
 
-    // Adsterra 728x90 Banner Code (Desktop Top)
-    topBannerDesktopHtml: ``,
+    // ১. Adsterra 728x90 Banner (Desktop Top)
+    topBannerDesktopHtml: `<script>
+      atOptions = {
+        'key' : '2273f2917c51216bcd1f82d6b8905eb0',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://bauval.org/22/2273f2917c51216bcd1f82d6b8905eb0"></script>`,
 
-    // Adsterra 320x50 Banner Code (Mobile Top)
-    topBannerMobileHtml: ``,
+    // ২. Adsterra 320x50 Banner (Mobile Top)
+    topBannerMobileHtml: `<script>
+      atOptions = {
+        'key' : '8e31fb3a841024580051c6ae233b6782',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://bauval.org/22/8e31fb3a841024580051c6ae233b6782"></script>`,
 
-    // Adsterra Native Banner Code (Below Every Tool — High CTR)
-    belowToolNativeHtml: ``,
+    // ৩. Adsterra Native Banner (Below Every Tool — 4:1 Layout)
+    belowToolNativeHtml: `<div id="container-0741474626c04f46b27dd32aedfd6e32"></div>
+    <script async="async" data-cfasync="false" src="https://bauval.org/21/0741474626c04f46b27dd32aedfd6e32"></script>`,
 
-    // Adsterra 300x250 Banner Code (Right Sidebar)
-    sidebarBanner300x250Html: ``,
+    // ৪. Adsterra 300x250 Banner (Right Sidebar)
+    sidebarBanner300x250Html: `<script>
+      atOptions = {
+        'key' : '434b265de435675365615fc2b448b20a',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://bauval.org/22/434b265de435675365615fc2b448b20a"></script>`,
 
-    // Global Scripts: Adsterra Social Bar এবং/অথবা Monetag Vignette / In-Page Push
+    // ৫. Adsterra Social Bar (Global Floating High-CTR)
     globalScripts: [
-      // উদাহরণ ১ (Adsterra Social Bar URL):
-      // "https://plXXXXXXXX.profitablegatecpm.com/xx/xx/xx/xxxxxxxx.js",
-
-      // উদাহরণ ২ (Monetag Vignette / In-Page Push):
-      // { src: "https://alwingulla.com/88/tag.min.js", attrs: { "data-zone": "1234567", "data-cfasync": "false" } }
+      {
+        src: "https://bauval.org/14/77d9c480c95044617cbadefa01635ac7",
+        attrs: { "data-cfasync": "false" }
+      }
     ]
   },
 
