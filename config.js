@@ -61,12 +61,7 @@ window.APP_CONFIG = {
     <script src="https://bauval.org/22/434b265de435675365615fc2b448b20a"></script>`,
 
     // ৫. Adsterra Social Bar (Global Floating High-CTR)
-    globalScripts: [
-      {
-        src: "https://bauval.org/14/77d9c480c95044617cbadefa01635ac7",
-        attrs: { "data-cfasync": "false" }
-      }
-    ]
+    
   },
 
   // Context-Aware Smart Affiliate Cards
