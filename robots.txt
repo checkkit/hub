@@ -4,4 +4,4 @@ Allow: /
 # API / Internal folders (if any)
 Disallow: /private/
 
-Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
+Sitemap: https://checkkit.github.io/hub/sitemap.xml
