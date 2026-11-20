@@ -9,7 +9,7 @@
   <!-- Fonts: Plus Jakarta Sans (Global SaaS) + Hind Siliguri (Clean Bangla) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +19,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '"Hind Siliguri"', 'sans-serif'],
+            sans: ['"Bricolage Grotesque"', '"Hind Siliguri"', 'sans-serif'],
           }
         }
       }
@@ -38,21 +38,21 @@
   <link rel="apple-touch-icon" href="assets/logo.png" />
 
   <!-- Canonical & SEO Robots -->
-  <link rel="canonical" href="https://checkkit.github.io/hub/" />
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph (Facebook, WhatsApp, LinkedIn Preview) -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://checkkit.github.io/hub/" />
+  <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
   <meta property="og:title" content="CheckKit — Free Hardware Tester, Privacy & Anti-Scam Toolkit" />
   <meta property="og:description" content="Test phone & PC hardware, eject speaker water, detect IP/WebRTC leaks, strip photo GPS EXIF, generate temp mail & scan scam links — 100% free in your browser." />
-  <meta property="og:image" content="https://checkkit.github.io/hub/assets/logo.png" />
+  <meta property="og:image" content="https://YOUR-DOMAIN.com/assets/logo.png" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CheckKit — Hardware, Privacy & Anti-Scam " />
   <meta name="twitter:description" content="14+ free browser diagnostic & privacy tools with offline PWA support." />
-  <meta name="twitter:image" content="https://checkkit.github.io/hub/assets/logo.png" />
+  <meta name="twitter:image" content="https://YOUR-DOMAIN.com/assets/logo.png" />
 
   <!-- Structured Data (Google Rich Snippet Schema) -->
   <script type="application/ld+json">
@@ -60,7 +60,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "CheckKit",
-    "url": "https://checkkit.github.io/hub/",
+    "url": "https://YOUR-DOMAIN.com/",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "All",
     "offers": {
@@ -121,7 +121,7 @@
       </div>
 
       <!-- Right Action Controls -->
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
         <!-- Scorecard Pill -->
         <button id="open-scorecard-btn" class="btn-glass hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold">
           <i data-lucide="clipboard-check" class="w-4 h-4 text-emerald-400"></i>
@@ -191,7 +191,8 @@
           <span data-i18n="heroBadge">14+ Pro Tools • 100% Client-Side Safe • Global & BD Ready</span>
         </div>
 
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.12] mb-4">
+        <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <h1 class="hero-title text-[2rem] sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] mb-4">
           <span class="animated-gradient-text" data-i18n="heroTitle">Test Your Hardware.</span>
           <br />
           <span class="text-slate-900 dark:text-white" data-i18n="heroTitleLine2">Lock Down Your Privacy.</span>
@@ -231,7 +232,7 @@
       </div>
 
       <!-- Colorful Animated Category Filter Pills -->
-      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-8" id="category-tabs">
+      <div class="cat-scroll flex items-center gap-2.5 mb-6 sm:mb-8 sm:flex-wrap sm:justify-center" id="category-tabs">
         <button data-cat="all" class="cat-tab active px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold inline-flex items-center gap-2">
           <i data-lucide="layout-grid" class="w-4 h-4"></i>
           <span data-i18n="catAll">All Tools</span>
@@ -313,7 +314,7 @@
           <!-- Main Interactive Card -->
           <div class="p-5 sm:p-7 rounded-3xl glass-card shadow-xl">
             <div class="flex items-start gap-4 mb-6">
-              <div id="ws-icon-box" class="w-13 h-13 p-3.5 rounded-2xl bg-gradient-to-br from-emerald-400 to-cyan-600 text-white flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/25">
+              <div id="ws-icon-box" class="w-12 h-12 p-3 rounded-2xl bg-gradient-to-br from-emerald-400 to-cyan-600 text-white flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/25">
                 <i data-lucide="wrench" class="w-6 h-6"></i>
               </div>
               <div>
@@ -323,7 +324,7 @@
             </div>
 
             <!-- PLUG-IN MOUNT POINT -->
-            <div id="tool-mount" class="min-h-[320px] rounded-2xl bg-slate-100/80 dark:bg-[#060a1c]/90 border border-slate-200 dark:border-white/10 p-5 sm:p-7 flex flex-col justify-center"></div>
+            <div id="tool-mount" class="min-h-[260px] sm:min-h-[320px] rounded-2xl bg-slate-100/80 dark:bg-[#060a1c]/90 border border-slate-200 dark:border-white/10 p-4 sm:p-7 flex flex-col justify-start sm:justify-center overflow-x-auto"></div>
 
             <!-- Hardware Scorecard Action Bar -->
             <div id="ws-scorecard-bar" class="hidden mt-5 pt-5 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
