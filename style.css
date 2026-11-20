@@ -1,269 +1,121 @@
-html {
-  scroll-behavior: smooth;
+/* ==========================================================
+   CheckKit — "Lab Bench" design system
+   ফ্ল্যাট রঙ, মোটা বর্ডার, হার্ড শ্যাডো; টুল = ইন্সট্রুমেন্ট।
+   সব আইডি/ক্লাস একই আছে — JS, API, লজিকে কোনো পরিবর্তন লাগে না।
+   ========================================================== */
+:root{
+  --bg:#EEF0FF; --surface:#FFFFFF; --well:#F6F7FF;
+  --ink:#0E1330; --line:#0E1330; --shadow:#0E1330;
+  --mint:#00C389; --blue:#2F6BFF; --coral:#FF5C8A; --sun:#FFD23F; --violet:#7C4DFF;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
+.dark{--bg:#090D22; --surface:#131937; --well:#0C1129; --line:#3A4486; --shadow:#272F63}
 
-/* Subtle SaaS Dot Grid */
-.bg-grid-pattern {
-  background-image: radial-gradient(rgba(99, 102, 241, 0.25) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg)!important;-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}
+h1,h2,h3{letter-spacing:-.03em;font-weight:800}
+.grid>*,.flex>*{min-width:0}
+img,video,canvas,svg{max-width:100%}
+::selection{background:var(--sun);color:#0E1330}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+*{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 
-/* Animated Floating Aurora Orbs */
-.aurora-orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(110px);
-  opacity: 0.28;
-  animation: floatOrb 16s ease-in-out infinite alternate;
-}
+/* ---------- Background: শুধু হালকা ডট গ্রিড ---------- */
+.aurora-orb{display:none}
+.bg-grid-pattern{background-image:radial-gradient(var(--line) 1px,transparent 1.2px);background-size:24px 24px;opacity:.12!important}
 
-.dark .aurora-orb {
-  opacity: 0.22;
-}
+/* ---------- Surfaces ---------- */
+.glass-card,.glass-modal,#smart-affiliate-card{
+  background:var(--surface)!important;border:2px solid var(--line)!important;
+  box-shadow:5px 5px 0 var(--shadow)!important;border-radius:20px!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.ad-slot-box{border-radius:16px!important;border:2px dashed var(--line)!important;background:transparent!important;overflow:hidden;contain:layout}
+header.sticky{background:var(--surface)!important;border-bottom:2px solid var(--line)!important;backdrop-filter:none!important}
+body>footer{background:var(--surface)!important;border-top:2px solid var(--line)!important}
+#tool-mount{background:var(--well)!important;border:2px solid var(--line)!important;border-radius:16px!important;min-width:0;max-width:100%}
+html body input:not([type=checkbox]):not([type=radio]):not([type=range]),html body textarea,html body select{
+  background:var(--well)!important;border:2px solid var(--line)!important;border-radius:12px!important;color:inherit}
+html body input:focus,html body textarea:focus{border-color:var(--blue)!important;box-shadow:3px 3px 0 var(--blue)!important;outline:none}
 
-.orb-1 {
-  width: 420px;
-  height: 420px;
-  background: linear-gradient(135deg, #10b981, #06b6d4);
-  top: -120px;
-  left: -80px;
-}
+/* ---------- Hero signature: ইকুয়ালাইজার ---------- */
+.eq{display:flex;align-items:flex-end;justify-content:center;gap:6px;height:48px;margin:0 auto 20px}
+.eq i{width:9px;height:100%;border-radius:5px;transform-origin:bottom;animation:eq 1.2s ease-in-out infinite}
+.eq i:nth-child(5n+1){background:var(--mint)}.eq i:nth-child(5n+2){background:var(--blue)}
+.eq i:nth-child(5n+3){background:var(--coral)}.eq i:nth-child(5n+4){background:var(--sun)}.eq i:nth-child(5n){background:var(--violet)}
+.eq i:nth-child(3n+2){animation-duration:1.5s;animation-delay:-.4s}.eq i:nth-child(3n){animation-duration:.9s;animation-delay:-.7s}
+@keyframes eq{0%,100%{transform:scaleY(.22)}50%{transform:scaleY(1)}}
+.hero-title{text-wrap:balance}
+.animated-gradient-text{background:linear-gradient(var(--sun),var(--sun)) 0 92%/0% .3em no-repeat;animation:mark .9s .35s var(--ease) forwards}
+@keyframes mark{to{background-size:100% .3em}}
+#home-view>.text-center>.inline-flex{background:var(--surface)!important;border:2px solid var(--line)!important;box-shadow:3px 3px 0 var(--shadow)}
 
-.orb-2 {
-  width: 460px;
-  height: 460px;
-  background: linear-gradient(135deg, #6366f1, #d946ef);
-  top: 15%;
-  right: -120px;
-  animation-delay: -5s;
-}
+/* ---------- Buttons: ফ্ল্যাট রং + হার্ড শ্যাডো ---------- */
+button,a{transition:transform .15s var(--ease),box-shadow .15s var(--ease),background-color .2s}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.btn-shimmer::after{display:none}
+.btn-gradient-emerald,.btn-gradient-cyber,.btn-gradient-pink,.btn-gradient-rose,.btn-aurora,.btn-glass,.btn-outline-glow,.cat-tab,.auth-tab{
+  border:2px solid #0E1330;box-shadow:3px 3px 0 var(--shadow)}
+.btn-gradient-emerald{background:var(--mint)!important;color:#0E1330!important}
+.btn-gradient-cyber{background:var(--blue)!important;color:#fff!important}
+.btn-gradient-pink{background:var(--coral)!important;color:#0E1330!important}
+.btn-gradient-rose{background:#FF4D4D!important;color:#0E1330!important}
+.btn-aurora{background:var(--sun)!important;color:#0E1330!important}
+.btn-glass,.btn-outline-glow{background:var(--surface)!important;color:inherit}
+.dark .btn-glass,.dark .btn-outline-glow{border-color:var(--line)}
+.btn-gradient-emerald:hover,.btn-gradient-cyber:hover,.btn-gradient-pink:hover,.btn-gradient-rose:hover,.btn-aurora:hover,.btn-glass:hover,.btn-outline-glow:hover,.cat-tab:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--shadow)}
+button:active,.btn-shimmer:active{transform:translate(2px,2px)!important;box-shadow:0 0 0 var(--shadow)!important}
 
-.orb-3 {
-  width: 360px;
-  height: 360px;
-  background: linear-gradient(135deg, #f59e0b, #ec4899);
-  bottom: -100px;
-  left: 30%;
-  animation-delay: -9s;
-}
+/* ---------- Category tabs (মোবাইলে সোয়াইপ) ---------- */
+.cat-scroll{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:4px 6px 10px;margin-inline:-6px}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-tab{flex:none;white-space:nowrap;background:var(--surface);color:inherit}
+.cat-tab.active{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)}
+.dark .cat-tab.active{background:var(--sun)!important;color:#0E1330!important}
+.auth-tab{color:inherit;border-color:transparent;box-shadow:none}
+.auth-tab.active{background:var(--sun);color:#0E1330;border-color:#0E1330;box-shadow:2px 2px 0 var(--shadow)}
 
-@keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(35px, 25px) scale(1.08); }
-  100% { transform: translate(-25px, 40px) scale(0.95); }
-}
+/* ---------- Tool cards: ক্যাটাগরি = রং ---------- */
+.tool-card{--ac:var(--mint);position:relative;background:var(--surface)!important;border:2px solid var(--line)!important;border-radius:20px!important;box-shadow:5px 5px 0 var(--ac)!important;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.tool-card.cat-privacy{--ac:var(--blue)}.tool-card.cat-security{--ac:var(--coral)}
+.tool-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ac)!important}
+.tool-card:active{transform:translate(2px,2px)!important;box-shadow:1px 1px 0 var(--ac)!important}
 
-/* Animated Rainbow-Tech Text */
-.animated-gradient-text {
-  background: linear-gradient(90deg, #10b981, #06b6d4, #6366f1, #ec4899, #10b981);
-  background-size: 250% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: textFlow 6s linear infinite;
-}
+/* ---------- Tool workspace ---------- */
+#tool-mount>*{max-width:100%}
+#tool-mount canvas,#tool-mount video,#tool-mount img{max-width:100%;height:auto;border-radius:12px;border:2px solid var(--line)}
+#tool-mount pre,#tool-mount code{white-space:pre-wrap;word-break:break-word;overflow-x:auto;max-width:100%}
+#tool-mount table{display:block;overflow-x:auto;max-width:100%}
+#tool-mount input,#tool-mount select,#tool-mount textarea{max-width:100%}
+#ws-breadcrumb-title,#ws-category-label,#ws-title{overflow-wrap:anywhere}
+#ws-icon-box{border:2px solid var(--line);box-shadow:3px 3px 0 var(--shadow)}
 
-@keyframes textFlow {
-  to { background-position: 250% center; }
-}
+/* ---------- Mobile bottom nav ---------- */
+body>nav{background:var(--surface)!important;border-top:2px solid var(--line)!important;backdrop-filter:none!important;padding-bottom:calc(.5rem + env(safe-area-inset-bottom))}
+.mobile-nav-btn{flex:1;min-width:0;color:inherit;opacity:.7}
+.mobile-nav-btn.active{background:var(--sun);color:#0E1330;opacity:1;box-shadow:inset 0 0 0 2px #0E1330}
 
-/* Glass Cards & Modals */
-.glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-}
+/* ---------- Motion / details ---------- */
+.fade-in-up{animation:fadeInUp .4s var(--ease) both}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+details summary{list-style:none;cursor:pointer}details summary::-webkit-details-marker{display:none}
+details[open] .faq-chevron{transform:rotate(180deg)}
 
-.dark .glass-card {
-  background: rgba(15, 23, 42, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+/* ---------- Responsive ---------- */
+@media (max-width:767px){
+  body{padding-bottom:calc(5.5rem + env(safe-area-inset-bottom))}
+  .glass-card,.tool-card{box-shadow:4px 4px 0 var(--shadow)!important}
+  .tool-card{box-shadow:4px 4px 0 var(--ac)!important}
+  #tool-mount button,#tool-mount select{min-height:44px}
+  #tool-mount input,#tool-mount select,#tool-mount textarea{font-size:16px}
+  #auth-modal,#pro-modal,#scorecard-modal{align-items:flex-end;padding:0}
+  #auth-modal>div,#pro-modal>div,#scorecard-modal>div{max-width:100%;max-height:92dvh;border-radius:22px 22px 0 0!important;box-shadow:none!important;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}
 }
-
-.glass-modal {
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(148, 163, 184, 0.3);
+@media (max-width:420px){
+  #brand-name{font-size:1rem}
+  header .btn-glass,header .btn-aurora{padding:.5rem .6rem}
+  .eq{height:38px}.eq i{width:7px}
 }
-
-.dark .glass-modal {
-  background: rgba(11, 16, 35, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+@media (hover:none){.tool-card:hover,.btn-shimmer:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .eq i{transform:scaleY(.6)}
 }
-
-/* ==================== COLORFUL ANIMATED BUTTONS ==================== */
-button, a {
-  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, background-position 0.4s ease, border-color 0.2s ease;
-}
-
-button:active, .btn-shimmer:active {
-  transform: scale(0.96);
-}
-
-/* Light Sweep Shimmer Effect */
-.btn-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shimmer::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 70%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.38), transparent);
-  transform: skewX(-22deg);
-  transition: left 0.65s ease;
-}
-
-.btn-shimmer:hover::after {
-  left: 140%;
-}
-
-.btn-shimmer:hover {
-  transform: translateY(-2px);
-}
-
-/* Aurora Multi-Color Pro Button */
-.btn-aurora {
-  background: linear-gradient(110deg, #6366f1, #ec4899, #f59e0b, #6366f1);
-  background-size: 240% 240%;
-  animation: gradientMove 5s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.btn-gradient-emerald {
-  background: linear-gradient(135deg, #10b981, #06b6d4);
-}
-.btn-gradient-emerald:hover {
-  box-shadow: 0 12px 26px -6px rgba(16, 185, 129, 0.55);
-}
-
-.btn-gradient-cyber {
-  background: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
-}
-.btn-gradient-cyber:hover {
-  box-shadow: 0 12px 26px -6px rgba(99, 102, 241, 0.55);
-}
-
-.btn-gradient-pink {
-  background: linear-gradient(135deg, #ec4899, #f43f5e);
-}
-.btn-gradient-pink:hover {
-  box-shadow: 0 12px 26px -6px rgba(236, 72, 153, 0.5);
-}
-
-.btn-gradient-rose {
-  background: linear-gradient(135deg, #f43f5e, #e11d48);
-}
-
-.btn-glass {
-  background: rgba(148, 163, 184, 0.14);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-}
-.dark .btn-glass {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-.btn-glass:hover {
-  border-color: rgba(6, 182, 212, 0.6);
-  transform: translateY(-1px);
-}
-
-.btn-outline-glow {
-  border: 1px solid rgba(6, 182, 212, 0.5);
-  background: rgba(6, 182, 212, 0.08);
-  color: #0891b2;
-}
-.dark .btn-outline-glow {
-  color: #67e8f9;
-}
-.btn-outline-glow:hover {
-  background: rgba(6, 182, 212, 0.2);
-  box-shadow: 0 0 18px rgba(6, 182, 212, 0.35);
-  transform: translateY(-1px);
-}
-
-/* Category Tabs */
-.cat-tab {
-  background: rgba(148, 163, 184, 0.14);
-  color: #64748b;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-}
-.dark .cat-tab {
-  background: rgba(255, 255, 255, 0.05);
-  color: #cbd5e1;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-.cat-tab:hover {
-  transform: translateY(-2px);
-  border-color: #22d3ee;
-  color: #22d3ee;
-}
-.cat-tab.active {
-  background: linear-gradient(135deg, #10b981, #06b6d4, #6366f1);
-  color: #ffffff !important;
-  border-color: transparent;
-  box-shadow: 0 10px 24px -6px rgba(6, 182, 212, 0.55);
-}
-
-/* Auth Tabs */
-.auth-tab {
-  color: #94a3b8;
-}
-.auth-tab.active {
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
-  color: #ffffff;
-  box-shadow: 0 6px 16px -4px rgba(99, 102, 241, 0.5);
-}
-
-/* Tool Card Neon Hover Glow */
-.tool-card {
-  position: relative;
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
-}
-.tool-card:hover {
-  transform: translateY(-5px);
-}
-.tool-card.cat-hardware:hover {
-  border-color: rgba(16, 185, 129, 0.65);
-  box-shadow: 0 18px 40px -15px rgba(16, 185, 129, 0.35);
-}
-.tool-card.cat-privacy:hover {
-  border-color: rgba(6, 182, 212, 0.65);
-  box-shadow: 0 18px 40px -15px rgba(6, 182, 212, 0.35);
-}
-.tool-card.cat-security:hover {
-  border-color: rgba(168, 85, 247, 0.65);
-  box-shadow: 0 18px 40px -15px rgba(168, 85, 247, 0.35);
-}
-
-/* Mobile Nav Active */
-.mobile-nav-btn {
-  color: #64748b;
-}
-.dark .mobile-nav-btn {
-  color: #94a3b8;
-}
-.mobile-nav-btn.active {
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.12);
-}
-
-/* Subtle Entrance Animation */
-.fade-in-up {
-  animation: fadeInUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* FAQ Chevron */
-details summary::-webkit-details-marker { display: none; }
-details[open] .faq-chevron { transform: rotate(180deg); }
