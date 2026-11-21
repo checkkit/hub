@@ -192,3 +192,23 @@ body>nav .mobile-nav-btn.active{background:rgba(37,99,235,.12);color:var(--brand
   .footer-top{flex-direction:row;justify-content:space-between;text-align:left}
   .footer-brand-block{align-items:flex-start}
 }
+
+/* ==========================================================
+   v3.1 — হেডলাইনের রঙিন বক্স-বাগ ফিক্স + হিরো গ্রাফ অ্যানিমেশন
+   (background শর্টহ্যান্ড !important হওয়ায় background-clip:text রিসেট হয়ে বক্স হচ্ছিল)
+   ========================================================== */
+.animated-gradient-text,.dark .animated-gradient-text{
+  background-image:linear-gradient(90deg,#10B981,#2563EB)!important;
+  background-size:100% 100%!important;background-repeat:no-repeat!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  color:transparent!important;-webkit-text-fill-color:transparent;animation:none!important}
+.dark .animated-gradient-text{background-image:linear-gradient(90deg,#34D399,#60A5FA)!important}
+
+.hero-graph{width:min(520px,86vw);aspect-ratio:520/64;margin:0 auto 18px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+.hero-graph svg{display:block;width:100%;height:100%;overflow:hidden}
+.hero-graph .hg-scroll{animation:hgScroll 3.4s linear infinite}
+.hero-graph .hg-base{stroke:var(--line);stroke-dasharray:3 6}
+@keyframes hgScroll{to{transform:translateX(-130px)}}
+@media (prefers-reduced-motion:reduce){.hero-graph .hg-scroll{animation:none!important}}
