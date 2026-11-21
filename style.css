@@ -119,3 +119,76 @@ details[open] .faq-chevron{transform:rotate(180deg)}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .eq i{transform:scaleY(.6)}
 }
+
+/* ==========================================================
+   v3 — Clean International SaaS refinement (সরল ও প্রফেশনাল)
+   উপরের নিয়মগুলোর ওপর বসে; হার্ড শ্যাডো বাদ, সূক্ষ্ম বর্ডার, একটাই ব্র্যান্ড-নীল।
+   ========================================================== */
+:root{--bg:#F6F8FC;--surface:#FFFFFF;--well:#F1F4FA;--line:#E2E8F0;--brand:#2563EB;--soft:0 1px 2px rgba(15,23,42,.05),0 12px 32px -20px rgba(15,23,42,.3)}
+.dark{--bg:#0A0F24;--surface:#10172E;--well:#0B1124;--line:rgba(255,255,255,.1);--soft:0 1px 2px rgba(0,0,0,.3),0 16px 36px -22px rgba(0,0,0,.8)}
+::selection{background:rgba(37,99,235,.3);color:inherit}
+.eq{display:none}
+.animated-gradient-text{background:linear-gradient(90deg,#10B981,#2563EB)!important;-webkit-background-clip:text;background-clip:text;color:transparent;animation:none}
+.dark .animated-gradient-text{background:linear-gradient(90deg,#34D399,#60A5FA)!important;-webkit-background-clip:text;background-clip:text}
+
+/* Surfaces */
+.glass-card,.glass-modal,#smart-affiliate-card{border:1px solid var(--line)!important;border-radius:16px!important;box-shadow:var(--soft)!important}
+header.sticky{border-bottom:1px solid var(--line)!important}
+body>footer{border-top:1px solid var(--line)!important}
+body>nav{border-top:1px solid var(--line)!important}
+#tool-mount{border:1px solid var(--line)!important;border-radius:14px!important}
+#tool-mount canvas,#tool-mount video,#tool-mount img{border:1px solid var(--line)}
+#ws-icon-box{border:0;box-shadow:none}
+#home-view>.text-center>.inline-flex{border:1px solid var(--line)!important;box-shadow:none}
+html body input:not([type=checkbox]):not([type=radio]):not([type=range]),html body textarea,html body select{border:1px solid var(--line)!important;border-radius:12px!important}
+html body input:focus,html body textarea:focus{border-color:var(--brand)!important;box-shadow:0 0 0 3px rgba(37,99,235,.25)!important}
+:focus-visible{outline-color:var(--brand)}
+
+/* Buttons */
+.btn-gradient-emerald,.btn-gradient-cyber,.btn-gradient-pink,.btn-gradient-rose,.btn-aurora,.btn-glass,.btn-outline-glow,.cat-tab{border:1px solid transparent;box-shadow:0 1px 2px rgba(15,23,42,.12)}
+.btn-gradient-emerald{background:#059669!important;color:#fff!important}
+.btn-gradient-cyber{background:var(--brand)!important;color:#fff!important}
+.btn-gradient-pink{background:#DB2777!important;color:#fff!important}
+.btn-gradient-rose{background:#E11D48!important;color:#fff!important}
+.btn-aurora{background:linear-gradient(135deg,#4F46E5,#7C3AED)!important;color:#fff!important;animation:none}
+.btn-glass,.btn-outline-glow,.cat-tab{background:var(--surface)!important;border-color:var(--line)!important;color:inherit!important}
+.btn-gradient-emerald:hover,.btn-gradient-cyber:hover,.btn-gradient-pink:hover,.btn-gradient-rose:hover,.btn-aurora:hover{transform:translateY(-1px);box-shadow:0 8px 20px -8px rgba(37,99,235,.55);filter:brightness(1.06)}
+.btn-glass:hover,.btn-outline-glow:hover,.cat-tab:hover{transform:translateY(-1px);box-shadow:0 6px 16px -8px rgba(15,23,42,.35);border-color:var(--brand)!important}
+button:active,.btn-shimmer:active{transform:scale(.97)!important;box-shadow:none!important}
+.cat-tab.active,.dark .cat-tab.active{background:var(--brand)!important;color:#fff!important;border-color:var(--brand)!important;box-shadow:0 8px 18px -8px rgba(37,99,235,.7)}
+.auth-tab.active{background:var(--brand);color:#fff;border-color:var(--brand);box-shadow:none}
+
+/* Tool cards */
+.tool-card{--ac:#10B981;border:1px solid var(--line)!important;border-radius:16px!important;box-shadow:var(--soft)!important}
+.tool-card.cat-privacy{--ac:#3B82F6}.tool-card.cat-security{--ac:#8B5CF6}
+.tool-card:hover{transform:translateY(-3px);border-color:var(--ac)!important;box-shadow:0 16px 32px -16px color-mix(in srgb,var(--ac) 60%,transparent)!important}
+.tool-card:active{transform:scale(.99)!important;box-shadow:var(--soft)!important}
+@media (max-width:767px){.glass-card,.tool-card{box-shadow:var(--soft)!important}}
+
+/* Bottom nav: লেখা এক লাইনে, "Hardware" আর ভাঙবে না */
+body>nav .mobile-nav-btn{padding-inline:.125rem!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.65rem;opacity:.75}
+body>nav .mobile-nav-btn.active{background:rgba(37,99,235,.12);color:var(--brand);box-shadow:none;opacity:1}
+.dark body>nav .mobile-nav-btn.active{color:#60A5FA;background:rgba(96,165,250,.14)}
+
+/* বিজ্ঞাপন: বক্স/ডটেড বর্ডার নেই, তাই দু'পাশের ফাঁকা অংশ আর দেখা যায় না; বিজ্ঞাপন মাঝখানে থাকে */
+.ad-slot-box{border:0!important;background:transparent!important;border-radius:0!important;padding:0!important;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.ad-slot-box img,.ad-slot-box iframe,.ad-slot-box ins,.ad-slot-box video{max-width:100%;height:auto;border-radius:12px}
+
+/* Footer */
+.site-footer{color:#64748B}.dark .site-footer{color:#94A3B8}
+.footer-inner{max-width:80rem;margin:0 auto;padding:2.25rem 1rem 1.5rem}
+.footer-top{display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center}
+.footer-brand-block{display:flex;flex-direction:column;align-items:center;gap:.25rem;font-size:.85rem}
+.footer-brand{font-weight:800;font-size:1.25rem;white-space:nowrap;color:#0F172A}.dark .footer-brand{color:#fff}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.5rem;font-size:.85rem;font-weight:600}
+.footer-links a:hover{color:var(--brand)}
+.footer-social{display:flex;gap:.6rem}
+.footer-social a{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--line);background:var(--well);color:inherit}
+.footer-social a svg{width:18px;height:18px;fill:currentColor}
+.footer-social a:hover{color:#fff;transform:translateY(-2px);border-color:transparent}
+.footer-social .fb:hover{background:#1877F2}.footer-social .tt:hover{background:#000}.footer-social .yt:hover{background:#FF0000}
+.footer-copy{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line);text-align:center;font-size:.75rem}
+@media (min-width:768px){
+  .footer-top{flex-direction:row;justify-content:space-between;text-align:left}
+  .footer-brand-block{align-items:flex-start}
+}
