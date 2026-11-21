@@ -23,42 +23,42 @@ window.APP_CONFIG = {
     // ১. Adsterra 728x90 Banner (Desktop Top)
     topBannerDesktopHtml: `<script>
       atOptions = {
-        'key' : '2273f2917c51216bcd1f82d6b8905eb0',
+        'key' : 'ce5d8e17a43d486d6c9fc11cf9e1fcc9',
         'format' : 'iframe',
         'height' : 90,
         'width' : 728,
         'params' : {}
       };
     </script>
-    <script src="https://bauval.org/22/2273f2917c51216bcd1f82d6b8905eb0"></script>`,
+    <script src="https://bauval.org/22/ce5d8e17a43d486d6c9fc11cf9e1fcc9"></script>`,
 
     // ২. Adsterra 320x50 Banner (Mobile Top)
     topBannerMobileHtml: `<script>
       atOptions = {
-        'key' : '8e31fb3a841024580051c6ae233b6782',
+        'key' : '6965619a251da8ab1dccaedc483db341',
         'format' : 'iframe',
         'height' : 50,
         'width' : 320,
         'params' : {}
       };
     </script>
-    <script src="https://bauval.org/22/8e31fb3a841024580051c6ae233b6782"></script>`,
+    <script src="https://bauval.org/22/6965619a251da8ab1dccaedc483db341"></script>`,
 
     // ৩. Adsterra Native Banner (Below Every Tool — 4:1 Layout)
-    belowToolNativeHtml: `<div id="container-0741474626c04f46b27dd32aedfd6e32"></div>
-    <script async="async" data-cfasync="false" src="https://bauval.org/21/0741474626c04f46b27dd32aedfd6e32"></script>`,
+    belowToolNativeHtml: `<div id="container-b7fca8f28895602ceacec70591de40cb"></div>
+    <script async="async" data-cfasync="false" src="https://bauval.org/21/b7fca8f28895602ceacec70591de40cb"></script>`,
 
     // ৪. Adsterra 300x250 Banner (Right Sidebar)
     sidebarBanner300x250Html: `<script>
       atOptions = {
-        'key' : '434b265de435675365615fc2b448b20a',
+        'key' : '2b4517fc722773cf595cdf4493879f19',
         'format' : 'iframe',
         'height' : 250,
         'width' : 300,
         'params' : {}
       };
     </script>
-    <script src="https://bauval.org/22/434b265de435675365615fc2b448b20a"></script>`,
+    <script src="https://bauval.org/22/2b4517fc722773cf595cdf4493879f19"></script>`,
 
     // ৫. Adsterra Social Bar (Global Floating High-CTR)
     
@@ -98,7 +98,7 @@ window.APP_CONFIG = {
       scorecardBtn: "Scorecard",
       signIn: "Sign In",
       goPro: "Go Pro",
-      heroBadge: "14+ Pro Tools • 100% Client-Side Safe • Global & BD Ready",
+      heroBadge: "Privacy Policy • 100% Client-Side Safe",
       heroTitle: "Test Your Hardware.",
       heroTitleLine2: "Lock Down Your Privacy.",
       heroSubtitle: "An international-grade browser toolkit for instant phone & PC diagnostics, IP/WebRTC leak detection, disposable temp mail, and anti-scam URL verification.",
@@ -122,7 +122,7 @@ window.APP_CONFIG = {
       markTestResult: "Save result to Device Health Scorecard:",
       howToUseTitle: "How to Use & Frequently Asked Questions",
       relatedTools: "More Popular Tools",
-      footerTagline: "International Hardware & Privacy SaaS Platform",
+      footerTagline: "International Hardware & Privacy Checker Platform",
       scorecardTitle: "Device Health Scorecard",
       proTitle: "Upgrade to CheckKit Pro",
       proDesc: "Zero ads, custom domain temp mail, bulk scam link scanning & watermark-free PDF device reports.",
