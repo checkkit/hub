@@ -212,3 +212,26 @@ body>nav .mobile-nav-btn.active{background:rgba(37,99,235,.12);color:var(--brand
 .hero-graph .hg-base{stroke:var(--line);stroke-dasharray:3 6}
 @keyframes hgScroll{to{transform:translateX(-130px)}}
 @media (prefers-reduced-motion:reduce){.hero-graph .hg-scroll{animation:none!important}}
+
+/* ==========================================================
+   v3.2 — স্পেসিং ফিক্স + ছোট ইমপ্রুভমেন্ট
+   ========================================================== */
+/* টপ বিজ্ঞাপন: বিজ্ঞাপনের নিচের অদৃশ্য ফাঁকা অংশ কেটে দেয়, তাই হিরোর সঙ্গে দূরত্ব কমে */
+#ad-slot-top{min-height:56px!important;max-height:110px;overflow:hidden;align-items:flex-start;line-height:0}
+#ad-slot-top>span{align-self:center;line-height:1.4}
+
+/* ফুটার মোবাইলে নিচের নেভ পর্যন্ত নামে; কপিরাইটের নিচে ফাঁকা ব্যান্ড থাকে না */
+@media (max-width:767px){
+  body{padding-bottom:0}
+  .footer-inner{padding-bottom:calc(5.25rem + env(safe-area-inset-bottom))}
+}
+
+/* ইমপ্রুভমেন্ট */
+html,body{overflow-x:clip}                                  /* পাশে স্ক্রল/কাটা বন্ধ */
+html{scroll-padding-top:130px}                              /* স্টিকি হেডারের নিচে লিংকের টার্গেট ঢাকা পড়ে না */
+@media (min-width:768px){html{scroll-padding-top:90px}}
+p{text-wrap:pretty}
+@media (max-width:639px){
+  #home-view>.text-center>.inline-flex{justify-content:center;text-align:center;border-radius:16px!important;line-height:1.4}
+}
+@media print{header,body>nav,.ad-slot-box,.site-footer{display:none!important}}
